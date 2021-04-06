@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc((100% - 45px) / 4);
+  margin-left: 15px;
+}
+.item:nth-child(4n + 1) {
+  margin-left: 0;
+}
