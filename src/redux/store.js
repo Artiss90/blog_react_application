@@ -3,8 +3,6 @@ import logger from 'redux-logger';
 import postReducers from 'redux/postRedux/postReducers';
 import commentReducers from 'redux/commentsRedux/commentReducers';
 import {
-  //   persistStore,
-  //   persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -12,13 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
 
 const store = configureStore({
   reducer: {
@@ -33,10 +24,5 @@ const store = configureStore({
     }).concat(logger),
   devTools: true,
 });
-
-// const persiststore = persistStore(store);
-
-// eslint-disable-next-line import/no-anonymous-default-export
-// export default { store, persiststore };
 
 export default store;
