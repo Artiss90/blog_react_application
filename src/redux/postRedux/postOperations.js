@@ -20,10 +20,10 @@ const fetchCurrentPost = id => dispatch => {
     .catch(error => dispatch(postActions.fetchCurrentPostsError(error)));
 };
 
-const addPost = text => dispatch => {
+const addPost = value => dispatch => {
   const post = {
-    title: text.title,
-    body: text.body,
+    title: value.title,
+    body: value.body,
   };
 
   dispatch(postActions.addPostRequest());
@@ -33,10 +33,32 @@ const addPost = text => dispatch => {
     .catch(error => dispatch(postActions.addPostError(error)));
 };
 
+const deletePost = id => dispatch => {
+  dispatch(postActions.deletePostRequest());
+  axios
+    .delete(`${pathPosts}/${id}`)
+    .then(() => dispatch(postActions.deletePostSuccess(id)))
+    .catch(error => dispatch(postActions.deletePostError(error)));
+};
+
+const changePost = (value, id) => dispatch => {
+  const post = {
+    title: value.title,
+    body: value.body,
+  };
+  dispatch(postActions.changePostRequest());
+  axios
+    .put(`${pathPosts}/${id}`, post)
+    .then(() => dispatch(postActions.changePostSuccess(id)))
+    .catch(error => dispatch(postActions.changePostError(error)));
+};
+
 const postOperations = {
   fetchPosts,
   fetchCurrentPost,
   addPost,
+  deletePost,
+  changePost,
 };
 
 export default postOperations;

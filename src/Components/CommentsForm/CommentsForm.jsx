@@ -19,7 +19,7 @@ function CommentsForm({ id, toggleModal }) {
     ).padStart(2, '0')}:${String(date.getFullYear()).padStart(2, '0')}`;
     onSubmitForm({
       postId: id,
-      body: `${comment} \ndate post comment: ${dateComment}`,
+      body: `${comment} ${'\ndate post comment: '}${dateComment}`,
     });
     toggleModal();
   };

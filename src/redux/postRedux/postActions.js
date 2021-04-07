@@ -16,6 +16,10 @@ const deletePostRequest = createAction('posts/deletePostRequest');
 const deletePostSuccess = createAction('posts/deletePostSuccess');
 const deletePostError = createAction('posts/deletePostError');
 
+const changePostRequest = createAction('posts/changePostRequest');
+const changePostSuccess = createAction('posts/changePostSuccess');
+const changePostError = createAction('posts/changePostError');
+
 const postActions = {
   fetchPostsRequest,
   fetchPostsSuccess,
@@ -29,6 +33,9 @@ const postActions = {
   deletePostRequest,
   deletePostSuccess,
   deletePostError,
+  changePostRequest,
+  changePostSuccess,
+  changePostError,
 };
 
 export default postActions;
