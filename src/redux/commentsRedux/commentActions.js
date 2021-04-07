@@ -1,13 +1,13 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const fetchCommentsRequest = createAction('comments/fetchCommentsRequest');
-const fetchCommentsSuccess = createAction('comments/fetchCommentsSuccess');
-const fetchCommentsError = createAction('comments/fetchCommentsError');
+const addCommentRequest = createAction('comments/addCommentRequest');
+const addCommentSuccess = createAction('comments/addCommentSuccess');
+const addCommentError = createAction('comments/addCommentError');
 
 const commentActions = {
-  fetchCommentsRequest,
-  fetchCommentsSuccess,
-  fetchCommentsError,
+  addCommentRequest,
+  addCommentSuccess,
+  addCommentError,
 };
 
 export default commentActions;

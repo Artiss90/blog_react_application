@@ -3,17 +3,17 @@ import { combineReducers } from 'redux';
 import commentActions from 'redux/commentsRedux/commentActions';
 
 const itemRedux = createReducer([], {
-  [commentActions.fetchCommentsSuccess]: (_, { payload }) => payload,
+  [commentActions.addCommentSuccess]: (_, { payload }) => payload,
 });
 
 const loadingRedux = createReducer(false, {
-  [commentActions.fetchCommentsRequest]: () => true,
-  [commentActions.fetchCommentsSuccess]: () => false,
-  [commentActions.fetchCommentsError]: () => false,
+  [commentActions.addCommentRequest]: () => true,
+  [commentActions.addCommentSuccess]: () => false,
+  [commentActions.addCommentError]: () => false,
 });
 
 const errorRedux = createReducer(null, {
-  [commentActions.fetchCommentsError]: (_, { payload }) => payload.message,
+  [commentActions.addCommentError]: (_, { payload }) => payload.message,
 });
 
 export default combineReducers({

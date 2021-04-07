@@ -20,9 +20,23 @@ const fetchCurrentPost = id => dispatch => {
     .catch(error => dispatch(postActions.fetchCurrentPostsError(error)));
 };
 
+const addPost = text => dispatch => {
+  const post = {
+    title: text.title,
+    body: text.body,
+  };
+
+  dispatch(postActions.addPostRequest());
+  axios
+    .post(pathPosts, post)
+    .then(({ data }) => dispatch(postActions.addPostSuccess(data)))
+    .catch(error => dispatch(postActions.addPostError(error)));
+};
+
 const postOperations = {
   fetchPosts,
   fetchCurrentPost,
+  addPost,
 };
 
 export default postOperations;

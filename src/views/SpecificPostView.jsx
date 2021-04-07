@@ -1,6 +1,8 @@
+import CommentsForm from 'Components/CommentsForm/CommentsForm';
 import CommentsList from 'Components/CommentsList/CommentsList';
 import Button from 'Components/Common/Button/Button';
-import { useEffect } from 'react';
+import Modal from 'Components/Common/Modal/Modal';
+import { useEffect, useState } from 'react';
 import { AiFillMessage } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
@@ -12,9 +14,14 @@ const SpecificPostView = ({
   },
 }) => {
   const dispatch = useDispatch();
+  const [openModalCreateComment, setOpenModalCreateComment] = useState(false);
+
+  const toggleModalCreateComment = () => {
+    setOpenModalCreateComment(!openModalCreateComment);
+  };
 
   useEffect(() => {
-    const fetchCurrentPost = () =>
+    const fetchCurrentPost = id =>
       dispatch(postOperations.fetchCurrentPost(id));
 
     if (id === ':id') {
@@ -25,17 +32,21 @@ const SpecificPostView = ({
   }, [dispatch, id]);
 
   const post = useSelector(postSelectors.getCurrentPostItems);
-  const onClickAddComment = () => {
-    console.log(`add comment${id}`);
-  };
+
   return (
     <div>
       <h3>{post.title}</h3>
       <p>{post.body}</p>
-      <Button onClick={onClickAddComment}>
+      <Button onClick={toggleModalCreateComment}>
         Add comment <AiFillMessage />
       </Button>
       {post.comments && <CommentsList comments={post.comments} />}
+
+      {openModalCreateComment && (
+        <Modal toggleModal={toggleModalCreateComment}>
+          <CommentsForm toggleModal={toggleModalCreateComment} id={id} />
+        </Modal>
+      )}
     </div>
   );
 };
