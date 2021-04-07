@@ -54,7 +54,7 @@ const ChangePostForm = ({ toggleModal, id }) => {
           onChange={handleChangeBody}
         />
       </label>
-      <button type="submit">Create post</button>
+      <button type="submit">Change post</button>
     </form>
   );
 };

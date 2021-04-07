@@ -7,7 +7,7 @@ const itemsRedux = createReducer([], {
   [postActions.addPostSuccess]: (_, { payload }) => [..._, payload],
   [postActions.deletePostSuccess]: (_, { payload }) =>
     _.filter(post => post.id !== payload),
-  [postActions.changePostSuccess]: (_, { payload }) => [..._, ...payload],
+  [postActions.changePostSuccess]: (_, { payload }) => _,
 });
 
 const currentItemRedux = createReducer([], {

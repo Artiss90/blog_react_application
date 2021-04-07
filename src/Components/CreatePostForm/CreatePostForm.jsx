@@ -10,10 +10,9 @@ const CreatePostForm = ({ toggleModal }) => {
   const [body, setBody] = useState('');
   const onSubmitForm = value => dispatch(postOperations.addPost(value));
 
-  const postId = uuidv4();
-
   const handleSubmit = e => {
     e.preventDefault();
+    const postId = uuidv4();
 
     onSubmitForm({
       id: postId,
