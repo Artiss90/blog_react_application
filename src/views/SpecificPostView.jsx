@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
 import postSelectors from 'redux/postRedux/postSelectors';
 import styleLoader from 'Components/Common/Loader/Loader.module.css';
+import style from './SpecificPostView.module.css';
 
 const SpecificPostView = ({
   match: {
@@ -36,7 +37,7 @@ const SpecificPostView = ({
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div className={style.title}>
       {isLoadingPosts ? (
         <Loader
           className={styleLoader.loader}

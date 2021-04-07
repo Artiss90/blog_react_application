@@ -1,0 +1,7 @@
+.container {
+  background-image: linear-gradient(to right, #22c1c3, #fdbb2d);
+  background-repeat: repeat;
+  width: 100%;
+  min-height: 300px;
+  height: 1200px;
+}

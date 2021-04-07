@@ -1,0 +1,7 @@
+.title {
+  text-align: center;
+  background-image: linear-gradient(to right, #22c0c375, #fdbb2d83),
+    url(../images/smoke.jpg);
+  background-repeat: repeat;
+  min-height: 100px;
+}

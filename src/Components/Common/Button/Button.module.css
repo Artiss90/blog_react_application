@@ -5,6 +5,7 @@
   border-radius: 4px;
   width: 200px;
   align-items: center;
+  margin: 0px 5px;
 }
 .button:hover,
 .button:focus-within {

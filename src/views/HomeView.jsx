@@ -1,6 +1,8 @@
+import style from './HomeView.module.css';
+
 const HomeView = () => {
   return (
-    <div>
+    <div className={style.container}>
       <h1>Home page</h1>
     </div>
   );

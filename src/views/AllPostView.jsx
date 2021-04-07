@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
 import postSelectors from 'redux/postRedux/postSelectors';
 import styleLoader from 'Components/Common/Loader/Loader.module.css';
+import style from './AllPostView.module.css';
 
 const AllPostView = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const AllPostView = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.container}>
       <Button onClick={toggleModalCreatePost}>
         Add post <AiFillFileAdd />
       </Button>
