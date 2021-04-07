@@ -15,6 +15,7 @@ const SpecificPostView = ({
 }) => {
   const dispatch = useDispatch();
   const [openModalCreateComment, setOpenModalCreateComment] = useState(false);
+  const post = useSelector(postSelectors.getCurrentPostItems);
 
   const toggleModalCreateComment = () => {
     setOpenModalCreateComment(!openModalCreateComment);
@@ -30,8 +31,6 @@ const SpecificPostView = ({
     }
     fetchCurrentPost(id);
   }, [dispatch, id]);
-
-  const post = useSelector(postSelectors.getCurrentPostItems);
 
   return (
     <div>

@@ -12,7 +12,7 @@ const PostsLists = () => {
   useEffect(() => {
     const fetchPosts = () => dispatch(postOperations.fetchPosts());
     fetchPosts();
-  }, [dispatch, posts]);
+  }, [dispatch]);
   return (
     <>
       <ul className={style.list}>

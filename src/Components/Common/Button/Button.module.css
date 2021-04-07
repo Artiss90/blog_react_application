@@ -3,6 +3,8 @@
   justify-content: space-around;
   background-color: rgb(238, 238, 238);
   border-radius: 4px;
+  width: 200px;
+  align-items: center;
 }
 .button:hover,
 .button:focus-within {

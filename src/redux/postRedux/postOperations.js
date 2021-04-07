@@ -24,6 +24,7 @@ const addPost = value => dispatch => {
   const post = {
     title: value.title,
     body: value.body,
+    id: value.id,
   };
 
   dispatch(postActions.addPostRequest());

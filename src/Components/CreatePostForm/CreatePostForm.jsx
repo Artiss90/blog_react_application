@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
+import { v4 as uuidv4 } from 'uuid';
 import style from './CreatePostForm.module.css';
 
 const CreatePostForm = ({ toggleModal }) => {
@@ -9,10 +10,13 @@ const CreatePostForm = ({ toggleModal }) => {
   const [body, setBody] = useState('');
   const onSubmitForm = value => dispatch(postOperations.addPost(value));
 
+  const postId = uuidv4();
+
   const handleSubmit = e => {
     e.preventDefault();
 
     onSubmitForm({
+      id: postId,
       title: title,
       body: body,
     });

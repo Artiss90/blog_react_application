@@ -1,13 +1,18 @@
 .list {
   display: flex;
   flex-wrap: wrap;
+  padding: 12px;
 }
 
 .item {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: calc((100% - 45px) / 4);
   margin-left: 15px;
+  margin-bottom: 15px;
+  background-color: rgb(213, 230, 173);
+  border-radius: 4px;
 }
 .item:nth-child(4n + 1) {
   margin-left: 0;
