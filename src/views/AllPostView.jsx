@@ -16,9 +16,8 @@ const AllPostView = () => {
 
   useEffect(() => {
     const fetchPosts = () => dispatch(postOperations.fetchPosts());
-
     fetchPosts();
-  }, [dispatch]);
+  }, [dispatch, openModalCreatePost]);
 
   return (
     <div>

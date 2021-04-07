@@ -1,0 +1,10 @@
+.button {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(238, 238, 238);
+  border-radius: 4px;
+}
+.button:hover,
+.button:focus-within {
+  background-color: cornflowerblue;
+}

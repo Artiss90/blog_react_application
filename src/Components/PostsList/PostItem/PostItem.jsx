@@ -1,9 +1,10 @@
 import Button from 'Components/Common/Button/Button';
 import Modal from 'Components/Common/Modal/Modal';
 import ChangePostForm from 'Components/ChangePostForm/ChangePostForm';
+import postOperations from 'redux/postRedux/postOperations';
+import { GoGear, GoTrashcan } from 'react-icons/go';
 import { useDispatch } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import postOperations from 'redux/postRedux/postOperations';
 import { useState } from 'react';
 
 const PostItem = ({ title, body, id }) => {
@@ -14,9 +15,12 @@ const PostItem = ({ title, body, id }) => {
   const toggleModalChangePost = () => {
     setOpenModalChangePost(!openModalChangePost);
   };
+
   return (
     <>
-      <Button onClick={() => toggleModalChangePost()}>Edit post</Button>
+      <Button onClick={() => toggleModalChangePost()}>
+        Edit post <GoGear />
+      </Button>
       <Link
         to={{
           pathname: `/posts/${id}`,
@@ -25,7 +29,9 @@ const PostItem = ({ title, body, id }) => {
         {title}
       </Link>
       <p>{body}</p>
-      <Button onClick={() => onDelete(id)}>Delete post</Button>
+      <Button onClick={() => onDelete(id)}>
+        Delete post <GoTrashcan />
+      </Button>
 
       {openModalChangePost && (
         <Modal toggleModal={toggleModalChangePost}>
