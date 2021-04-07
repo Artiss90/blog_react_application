@@ -4,12 +4,16 @@ import CreatePostForm from 'Components/CreatePostForm/CreatePostForm';
 import PostsLists from 'Components/PostsList/PostsLists';
 import { useEffect, useState } from 'react';
 import { AiFillFileAdd } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
+import Loader from 'react-loader-spinner';
+import { useDispatch, useSelector } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
+import postSelectors from 'redux/postRedux/postSelectors';
+import styleLoader from './Loader.module.css';
 
 const AllPostView = () => {
   const dispatch = useDispatch();
   const [openModalCreatePost, setOpenModalCreatePost] = useState(false);
+  const isLoadingPosts = useSelector(postSelectors.getContactsLoading);
   const toggleModalCreatePost = () => {
     setOpenModalCreatePost(!openModalCreatePost);
   };
@@ -24,7 +28,18 @@ const AllPostView = () => {
       <Button onClick={toggleModalCreatePost}>
         Add post <AiFillFileAdd />
       </Button>
-      <PostsLists />
+      {isLoadingPosts ? (
+        <Loader
+          className={styleLoader.loader}
+          type="Oval"
+          color="#1976d2"
+          height={300}
+          width={300}
+          timeout={0} //3 secs
+        />
+      ) : (
+        <PostsLists />
+      )}
 
       {openModalCreatePost && (
         <Modal toggleModal={toggleModalCreatePost}>
