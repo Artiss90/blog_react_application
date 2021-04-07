@@ -8,7 +8,7 @@ import Loader from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import postOperations from 'redux/postRedux/postOperations';
 import postSelectors from 'redux/postRedux/postSelectors';
-import styleLoader from './Loader.module.css';
+import styleLoader from 'Components/Common/Loader/Loader.module.css';
 
 const AllPostView = () => {
   const dispatch = useDispatch();
