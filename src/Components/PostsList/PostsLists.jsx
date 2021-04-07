@@ -12,8 +12,6 @@ const PostsLists = () => {
         posts.map(post => (
           <li key={post.id} className={style.item}>
             <PostsItems id={post.id} title={post.title} body={post.body} />
-            {/* <p>{post.title}</p>
-          <p>{post.body}</p> */}
           </li>
         ))}
     </ul>
